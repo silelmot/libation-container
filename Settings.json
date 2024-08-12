@@ -1,0 +1,33 @@
+{
+  "Books": "/root/Libation/Books",
+  "ThemeVariant": "Light",
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "ZipFile",
+        "Args": {
+          "path": "/root/Libation/Logs/_Log.log",
+          "rollingInterval": "Month",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] (at {Caller}) {Message:lj}{NewLine}{Exception} {Properties:j}"
+        }
+      }
+    ],
+    "Using": [
+      "Dinah.Core",
+      "Serilog.Exceptions"
+    ],
+    "Enrich": [
+      "WithCaller",
+      "WithExceptionDetails"
+    ]
+  },
+  "MessageBoxWindow": {
+    "X": 245,
+    "Y": 240,
+    "Height": 110,
+    "Width": 279,
+    "IsMaximized": true
+  },
+  "FirstLaunch": true
+}
